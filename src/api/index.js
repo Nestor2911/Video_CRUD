@@ -5,7 +5,7 @@ export function api({ urlBase = "http://localhost:3000"} = {}) {
     const put = ({url, body, id}) => 
     fetch(`${urlBase}/${url}/${id}`, {
         method:"PUT",
-        body: JSON.stringfy(body),
+        body: JSON.stringify(body),
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
           },

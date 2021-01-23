@@ -65,15 +65,16 @@ export default new Vuex.Store({
       }
     },
     async updateVideo({ commit }, { body, id }){
-     
+      try{
         await api().put({
           url: "videos",
           body,
           id,
         });//consumo de api
         commit("SET_ERROR", false);
-      
-      
+      }catch (e){
+        commit("SET_ERROR", true);
+      }
     },
   },
   getters: {

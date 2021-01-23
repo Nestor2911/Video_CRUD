@@ -57,7 +57,6 @@ export default {
       updateVideo: "updateVideo",
 
     }),
-    
     async handleSubmit() {
       console.log('submit!!!')
         await this.updateVideo({
