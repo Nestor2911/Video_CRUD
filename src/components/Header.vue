@@ -5,7 +5,7 @@
         <a class="navbar-brand" href="/"
           >CRUD VIDEOS {{ this.$store.state.count }}</a
         >
-        <button
+        <!--<button
           class="navbar-toggler"
           type="button"
           data-toggle="collapse"
@@ -13,9 +13,12 @@
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
-        >
+        >       
           <span class="navbar-toggler-icon"></span>
-        </button>
+        </button>-->
+        <Button event="click" :callback="redirectAdd" type="primary"
+        >AGREGAR VIDEO</Button
+      >
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
@@ -71,10 +74,19 @@
   </header>
 </template>
 <script>
+import Button from "@/ui/Button";
+
 export default {
   name: "Header",
-  methods: {},
-  mounted() {
+  methods: {
+    redirectAdd() {
+      this.$router.push("add");
+    },
+  },  
+  components: {
+    Button,    
+  },
+    mounted() {
     //console.log("Se montó el header!!", this.$store.state);
   },
 };

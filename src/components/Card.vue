@@ -1,4 +1,4 @@
-<template >
+<template>
   <article class="card">
     <h2>{{ data.title }}</h2>
     <hr>
