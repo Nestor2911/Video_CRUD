@@ -1,10 +1,11 @@
 <template>
   <header class="header">
-    <nav class="navbar navbar-dark bg-primary">
+    <nav class="navbar navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="/"
-          >CRUD VIDEOS {{ this.$store.state.count }}</a
-        >
+          >CRUD VIDEOS</a>
+         <!-- <a class="navbar-brand" href="/"
+          >CRUD VIDEOS {{ this.$store.state.count }}</a>-->
         <!--<button
           class="navbar-toggler"
           type="button"
@@ -16,7 +17,7 @@
         >       
           <span class="navbar-toggler-icon"></span>
         </button>-->
-        <Button event="click" :callback="redirectAdd" type="primary"
+        <Button event="click" :callback="redirectAdd" btn-lg
         >AGREGAR VIDEO</Button
       >
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -75,7 +76,6 @@
 </template>
 <script>
 import Button from "@/ui/Button";
-
 export default {
   name: "Header",
   methods: {

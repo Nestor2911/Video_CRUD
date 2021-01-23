@@ -11,13 +11,6 @@ export default new Vuex.Store({
     error: false
   },
   mutations: {
-    INCREMENT_COUNT(state) {
-      console.log("increment state");
-      state.count = state.count + 1;
-    },
-    DECREMENT_COUNT(state) {
-      state.count = state.count - 1;
-    },
     SET_ERROR(state, flag) {
       state.error = flag;
     },
@@ -49,6 +42,8 @@ export default new Vuex.Store({
         await api().deleteEnd({
           id,
         });
+        alert("Se eliminó el Video");
+      this.$router.push("/");
         commit("SET_ERROR", false);
       } catch (e) {
         commit("SET_ERROR", true);

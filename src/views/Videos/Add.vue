@@ -21,7 +21,7 @@
         <Button class="me-4" type="primary" type-button="submit"
           >AGREGAR</Button
         >
-        <Button>CANCELAR</Button>
+        <Button event="click" :callback="redirectRoot">CANCELAR</Button>
       </div>
     </form>
   </div>
@@ -45,6 +45,9 @@ export default {
     };
   },
   methods: {
+     redirectRoot() {
+      this.$router.push("/");
+    },
     saveVideo(payload) {
       fetch("http://localhost:3000/videos", {
         method: "POST",
@@ -54,6 +57,10 @@ export default {
         },
       });
     },
+    alertError(e) {
+            alert('error');
+            console.error(e)
+        },
     
     async handleSubmit() {
       try{

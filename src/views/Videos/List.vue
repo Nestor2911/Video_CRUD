@@ -2,18 +2,19 @@
   <div class="view-list">
     <div v-if="!this.$store.state.videos.length" class="text-center">
       <Button event="click" :callback="redirectAdd" type="primary"
-        >AGREGAR VIDEO</Button
-      >
+        >AGREGAR VIDEO</Button>
     </div>
     <div v-else>
-      <div v-for="(video, id) in videos" :key="video.id">
-        {{ id }}){{ count }}
-        <Card
-          :data="video"
-          v-on:godelete="deleteItem"
-          v-on:goedit="editItem"
-          v-on:godetail="detailItem"
-        />
+      <h2>VIDEOS</h2>
+      <div class="wrapp">
+      <div v-for="video in videos" :key="video.id">       
+          <Card
+            :data="video"
+            v-on:godelete="deleteItem"
+            v-on:goedit="editItem"
+            v-on:godetail="detailItem"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -55,15 +56,16 @@ export default {
     redirectAdd() {
       this.$router.push("add");
     },
-    async deleteItem(id) {    
+    async deleteItem(id) {
       await this.deleteVideo(id);
-      await this.getVideos();     
+      await this.getVideos();
     },
     editItem(id) {
       this.$router.push({ name: "VideoEdit", params: { id } });
     },
     detailItem(id) {
-      console.log('detalle',id);
+      this.$router.push({ name: "VideoDetail", params: { id } });
+      // console.log('detalle',id);
     },
   },
   mounted() {
@@ -72,5 +74,9 @@ export default {
 };
 </script>
 <style lang="scss">
-
+.wrapp {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
 </style>

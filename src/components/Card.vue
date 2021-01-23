@@ -2,11 +2,8 @@
   <article class="card">
     <h2>{{ data.title }}</h2>
     <hr>
-    <br>
-    <br> 
-    <iframe
-      width="280"
-      height="157"
+    
+    <iframe     
       :src="data.url"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -23,7 +20,7 @@
               goEdit(data.id);
             }
           "
-          type="primary"
+         type="primary"
           >Editar</Button
         >
       </li>
@@ -35,7 +32,7 @@
               goDelete(data.id);
             }
           "
-          type="primary"
+          class="btn btn-danger"
           >Eliminar</Button
         >
       </li>
@@ -82,6 +79,7 @@ export default {
 </script>
 <style lang="scss">
 .card {
+  width: 400px;
   border: 1px solid #cdcdcd;
   padding: 20px;
   margin-bottom: 40px;

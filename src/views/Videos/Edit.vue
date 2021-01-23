@@ -21,7 +21,7 @@
         <Button class="me-4" type="primary" type-button="submit"
           >ACTUALIZAR</Button
         >
-        <Button>CANCELAR</Button>
+        <Button event="click" :callback="redirectRoot">CANCELAR</Button>
       </div>
     </form>
   </div>
@@ -52,25 +52,28 @@ export default {
     }),
   },
   methods: {
+    redirectRoot() {
+      this.$router.push("/");
+    },
     ...mapActions({
       getVideo: "getVideo",
       updateVideo: "updateVideo",
 
     }),
     async handleSubmit() {
-      console.log('submit!!!')
         await this.updateVideo({
         id: this.$route.params.id,
         body: this.form,
       });
-      //alert("Se actualizó correctamente el video");
-      //this.$router.push("/");
+      alert("Se actualizó correctamente el video");
+      this.$router.push("/");
     },
   },
   async mounted() {
     await this.getVideo(this.$route.params.id);
     this.form = this.video;
   },
+  
 };
 </script>
 <style lang="scss">
